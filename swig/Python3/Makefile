@@ -56,6 +56,9 @@ else
       LDLIBS := -L/usr/lib/atlas -lm -ldl -lsatlas
     endif
   endif
+  ifneq (,$(findstring aarch64,$(shell uname -m)))
+    SNOWBOYDETECTLIBFILE = $(TOPDIR)/lib/aarch64-ubuntu1604/libsnowboy-detect.a
+  endif
 endif
 
 all: $(SNOWBOYSWIGLIBFILE) $(SNOWBOYDETECTSWIGLIBFILE)
